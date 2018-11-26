@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class MyResource {
 
@@ -20,4 +22,10 @@ public class MyResource {
     public ConfigProperties getConfig() {
         return configProperties;
     }
+
+    @GetMapping("session")
+    public String getSession(HttpSession session) {
+        return session.getId();
+    }
+
 }
